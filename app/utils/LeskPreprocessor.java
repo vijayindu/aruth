@@ -4,21 +4,21 @@
  */
 package utils;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import dao.StopWordReader;
+import exceptions.AruthAPIException;
 
 public class LeskPreprocessor {
 
-	public static List<String> preprocessContext (String context) throws IOException {
+	public static List<String> preprocessContext (String context) throws AruthAPIException {
 		// get stop words
 		List<String> stopWords = new StopWordReader().getStopWords();
 		
 		// replace other characters and get the user context as a list of Strings
-		List<String> pContextTemp = Arrays.asList(context.replaceAll("[|\"]", " ").split(" "));
+		List<String> pContextTemp = Arrays.asList(context.replaceAll("[\\[\\]|\".,]", " ").split(" "));
 		List<String> pContext = new ArrayList<String>();
 		
 		for (String word : pContextTemp) {

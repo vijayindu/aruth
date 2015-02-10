@@ -15,6 +15,9 @@ POST	/disambiguate				controllers.WSDController.disambiguate()
 # Get All Senses
 GET		/getAllSenses				controllers.SenseController.getAllSenses(target)
 
+# Get All Words for a sense
+POST	/getAllWordsForASense		controllers.WordController.getAllWordsForASense()
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
@@ -23,7 +26,13 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 GET     /tryWordSenseDisambiguation	controllers.SampleController.tryWordSenseDisambiguation()
 GET     /tryDisambiguate		    controllers.SampleController.disambiguate(context,word)
 POST    /tryDisambiguatePost		controllers.WSDController.disambiguate()
+POST    /getAllSenses				controllers.SenseController.getAllSensesUsingJason()
+POST    /getAllWords				controllers.WordController.getAllWordsForASense()
 
 
 GET     /publications               controllers.SampleController.publications()
-GET     /home              			 controllers.SampleController.home()
+GET     /home              			controllers.SampleController.home()
+GET     /aboutUs              		controllers.SampleController.aboutUs()
+GET     /contactUs              	controllers.SampleController.contactUs()
+
+

@@ -11,11 +11,23 @@
 
 body {
 		/* background-color: white; */
-	 	/* background-image: url("/assets/images/favicon.png");  */
+	 	/*  background-image: url("/assets/images/favicon.png");   */
 	 
 }
+#error-bar-home{
+		display: none;	
+		color:red;
+}
 
+.home-search-input-error-bar{ 
+	height : 40px;
+	//margin-left: 10%; 
+	text-align:right;
+}
 
+.hide-element{
+	display: none;	
+}
 
 .submitButtonPosition{
 	float : right;	
@@ -35,11 +47,24 @@ body {
 			border-radius: 8px;
 			border: solid 1px #EEE;
 			width: 50% !important;
-			margin-left : 5%;
+			//margin-left : 5%;
 			height: 54px; 
 }
 #result{
 	display: none;	
+}
+#all-senses{
+	display: none;	
+}
+#result-other-words{
+	display: none;
+}
+#word-senses .meaning-of-a-sense{	
+	color : black;
+}
+#word-senses .example-of-a-sense{
+	color : #088A85;
+	margin-left:5%;
 }
 
 .result-sense{
@@ -62,7 +87,7 @@ body {
 }
 .input-box{
 			//margin-top: 10%;
-			//margin-left : 10%;
+			margin-left : 10%;
 			margin-right: 10%;
 			//background-color : yellow;
 }
@@ -70,16 +95,20 @@ body {
 			width : 100%;
 }
 .text-wrapper{
-			margin-left : 10%;
+			//margin-left : 10%;
 }
 .result-wrapper{
-			margin-left : 10%;
+			//margin-left : 10%;
 			border-top: solid 1px #DFDFDF;	
 			padding-top:2%;
 }
+#other-words-list{
+	  margin-bottom: 15px;
+}
+
 .result-topic{
 	padding: 0 0 1% 0 ;	
-	color:red;
+	color:#DF7401;
 }
 		
 #aruth-logo A{
@@ -93,7 +122,7 @@ body {
 			background-repeat: no-repeat;
 			background-size: contain;
 			max-width: 100%;
-			margin-left : 10%;
+			//margin-left : 10%;
 }
  
 #aruth-logo A:hover{ 

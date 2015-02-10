@@ -9,6 +9,7 @@ import java.util.List;
 import net.sf.extjwnl.data.IndexWord;
 import net.sf.extjwnl.data.Synset;
 import dao.WordNetReader;
+import exceptions.AruthAPIException;
 
 import play.Logger;
 import play.Logger.ALogger;
@@ -17,13 +18,18 @@ public class SenseManager {
 	
 	private static final ALogger logger = Logger.of(SenseManager.class);
 	
+	private List<Synset> senses;
+	
+	public SenseManager () {
+		senses = new ArrayList<Synset>();
+	}
 	/*
 	 * Input string 'target'
 	 * Output all the senses available in the WordNet
 	 * Implemented only for nouns
 	 */
-	public List<String> getAllSenses (String target) {
-		List <String> senses = getNounSenses(target);
+	public List<Synset> getAllSenses (String target) throws AruthAPIException {
+		List <Synset> senses = getNounSenses(target);
 		
 		return senses;
 	}
@@ -32,24 +38,14 @@ public class SenseManager {
 	 * Input string 'target'
 	 * Output all the senses available in the WordNet for the noun
 	 */
-	private List<String> getNounSenses (String target) {
+	private List<Synset> getNounSenses (String target) throws AruthAPIException {
 		logger.info("Senses requested for "+target);
 		
 		IndexWord word = WordNetReader.getNounAsIndexWord(target);
 		
-		if (word == null) {
-			logger.error("Word not found on WordNet " + target);
-			return null;
-		}
-		
-		List <Synset> synset = word.getSenses();
-		List<String> glosses = new ArrayList<String>();
-		
-		for (Synset syn : synset) {
-			glosses.add(syn.getGloss());
-		}
-		
-		return glosses;
+		senses = word.getSenses();
+				
+		return senses;
 	}
 
 }

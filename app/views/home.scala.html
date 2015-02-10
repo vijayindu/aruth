@@ -1,4 +1,5 @@
 <div id="inputBox" class="input-box">
+	<input id="offSet"  value=""  type="hidden"/>
 					<table>
 						<tr>
 							<td colspan = "2">
@@ -13,25 +14,51 @@
 										<textarea maxlength="5000" id ="context" name="text" class="input-word" placeholder="Context goes here....."></textarea>
 								</div>
 							</td>
-						</tr> 
+						</tr>  
 						<tr> 
 							<td colspan="1">
 								<div class="text-wrapper">
 										<textarea maxlength="5000" id="target" name="text" class="target-word" placeholder="Word to disambiguate goes here....."></textarea>
 								</div>
 							</td>
-							<td colspan="1">
+							<td colspan="1"> 
 								<div class="submit-wrapper">
-										<button type="submit" id="mySubmit" class="search-btn" onClick="submitInput()">Search</button>
+										<button type="submit" id="mySubmit" class="search-btn" onClick="tryExecute()">Search / අරුත</button>
 								</div> 
 							</td>
 						</tr>
 						<tr>
+							<td colspan = "2"><div id="error-bar-home" class="home-search-input-error-bar">
+								 
+							</div></td>
+						</tr>
+						<tr>
 							<td colspan="2">
 								<div class="result-wrapper" id="result" >	
-										<p class = "result-topic">අදහස් කරන ලද අරුත</p>
+										<p class = "result-topic">අදහස් කරන ලද අරුත / implied sense</p>
 										<textarea maxlength="5000" name="text" id="result-show" class="result-sense" placeholder="sense goes here....."></textarea>
 								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<div class="result-wrapper" id="result-other-words" >	
+										<p class = "result-topic">මෙම අරුතම ඇති වෙනත් වදන් / other words with the same implied sense</p> 
+										<div id="other-words-list"></div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<div class="result-wrapper" id="all-senses" >	
+										<p class = "result-topic">තෝරාගත් වදනට පහත අරුත් ඇත / selected word has below meanings</p>
+										<div id="word-senses"></div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<div style="border-top: solid 1px #EEE;margin-top:2%;" ></div>
 							</td>
 						</tr>
 					</table>
